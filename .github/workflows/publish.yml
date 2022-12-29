@@ -13,12 +13,9 @@ jobs:
     - name: Build Docker Imaage
       run:  | 
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-        echo ${{ secrets.DOCKER_USERNAME }} | sed 's/ ./& /g'
-        echo ${{ secrets.DOCKER_PASSWORD }} | sed 's/ ./& /g'
-        
     
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@v4
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: naveeharn/golang_github_action
         username: ${{ secrets.DOCKER_USERNAME }}
