@@ -13,8 +13,8 @@ jobs:
     - name: Build Docker Imaage
       run:  | 
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-        echo ${{ secrets.DOCKER_USERNAME }} | sed 's/ ./&'
-        echo ${{ secrets.DOCKER_PASSWORD }} | sed 's/ ./&'
+        echo ${{ secrets.DOCKER_USERNAME }} | sed 's/ ./& /g'
+        echo ${{ secrets.DOCKER_PASSWORD }} | sed 's/ ./& /g'
         
     
     - name: Publish to Registry
