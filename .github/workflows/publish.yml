@@ -11,7 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build Docker Imaage
-      run:  docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run:  | 
+        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        echo ${{ secrets.DOCKER_USERNAME }} | sed 's/ ./&'
+        echo ${{ secrets.DOCKER_PASSWORD }} | sed 's/ ./&'
+        
     
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v4
