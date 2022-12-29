@@ -18,7 +18,7 @@ jobs:
       #   with:
       #     # Required: the version of golangci-lint is required and must be specified without patch version: we always use the latest patch version.
       #     version: v1.27
-      #     github-token: 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
+      #     github-token: 
       
       - name: Lint
         run: | 
