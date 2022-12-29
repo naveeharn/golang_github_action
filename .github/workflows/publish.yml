@@ -18,7 +18,7 @@ jobs:
         echo ${{ github.actor }} | sed 's/ ./& /g'
     
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: naveeharn/golang_github_action
         username: ${{ secrets.DOCKER_USERNAME }}
